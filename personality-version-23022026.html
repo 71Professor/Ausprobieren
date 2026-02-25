@@ -200,7 +200,7 @@
             display: inline;
         }
 
-        .start-btn, .result-btn, .back-btn {
+        .start-btn, .result-btn, .back-btn, .show-result-btn {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
             border: none;
@@ -214,32 +214,13 @@
             box-shadow: 0 8px 20px rgba(26, 108, 65, 0.3);
         }
 
-        .start-btn:hover, .result-btn:hover, .back-btn:hover {
+        .start-btn:hover, .result-btn:hover, .back-btn:hover, .show-result-btn:hover:not(:disabled) {
             transform: translateY(-2px);
             box-shadow: 0 12px 30px rgba(26, 108, 65, 0.4);
         }
 
         .back-btn {
             background: linear-gradient(135deg, var(--turquoise) 0%, var(--turquoise-light) 100%);
-        }
-
-        .show-result-btn {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            border: none;
-            padding: 1.2rem 3rem;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'DM Sans', sans-serif;
-            box-shadow: 0 8px 20px rgba(26, 108, 65, 0.3);
-        }
-
-        .show-result-btn:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(26, 108, 65, 0.4);
         }
 
         .show-result-btn:disabled,
@@ -668,14 +649,6 @@
             60% { transform: scale(1.12); box-shadow: 0 0 0 10px rgba(26, 108, 65, 0); }
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(26, 108, 65, 0); }
         }
-60% {
-        transform: scale(1.12);
-        box-shadow: 0 0 0 10px rgba(26, 108, 65, 0);
-    }
-    100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(26, 108, 65, 0);
-    }
 
 /* --- Link-Farben (einheitlich, alle Zustände) --- */
 a,
@@ -769,7 +742,7 @@ a:focus {
             </div>
             <div class="modal-body" id="modal-body"></div>
             <div class="modal-buttons">
-                <a href="https://www.medien.kita.bayern/edu-sharing/components/search" target="_blank" class="media-btn">Zeig mir mehr<br>Beispiele</a>
+                <a href="https://www.medien.kita.bayern/edu-sharing/components/search" target="_blank" rel="noopener noreferrer" class="media-btn">Zeig mir mehr<br>Beispiele</a>
                 <button class="back-btn" onclick="closeModal()">Zurück zum Ergebnis</button>
                 
             </div>
