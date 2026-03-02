@@ -466,7 +466,7 @@
             background: var(--bg-white);
             border-radius: 24px;
             padding: 2.5rem;
-            max-width: 600px;
+            max-width: 780px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
@@ -701,14 +701,29 @@ a:focus {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, var(--bg-light) 0%, var(--turquoise-lighter) 100%);
+    background: rgba(16, 71, 54, 0.7);
     z-index: 2000;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
     animation: fadeIn 0.3s ease;
 }
 
 .examples-overlay.active {
     display: flex;
+}
+
+.examples-dialog {
+    max-width: 780px;
+    width: 100%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 24px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--turquoise-lighter) 100%);
+    box-shadow: 0 25px 80px rgba(16, 71, 54, 0.3);
+    animation: modalSlideIn 0.4s ease;
 }
 
 .examples-header {
@@ -957,6 +972,8 @@ a:focus {
 }
 
 @media (max-width: 600px) {
+    .examples-overlay { padding: 0; }
+    .examples-dialog { border-radius: 0; max-height: 100vh; }
     .examples-tabs { gap: 0.35rem; padding: 0.7rem 0.4rem; }
     .examples-tab { min-width: 52px; max-width: 66px; padding: 0.5rem 0.35rem; }
     .examples-tab svg { width: 20px; height: 20px; }
@@ -1027,12 +1044,14 @@ a:focus {
 
     <!-- Examples Overlay -->
     <div class="examples-overlay" id="examples-overlay">
-        <div class="examples-header">
-            <h2>KITA HUB – Mehr Beispiele</h2>
-            <button class="examples-close" onclick="closeExamples()" aria-label="Schließen">&times;</button>
+        <div class="examples-dialog">
+            <div class="examples-header">
+                <h2>KITA HUB – Mehr Beispiele</h2>
+                <button class="examples-close" onclick="closeExamples()" aria-label="Schließen">&times;</button>
+            </div>
+            <div class="examples-tabs" id="examples-tabs"></div>
+            <div class="examples-content" id="examples-content"></div>
         </div>
-        <div class="examples-tabs" id="examples-tabs"></div>
-        <div class="examples-content" id="examples-content"></div>
     </div>
 
     <script>
