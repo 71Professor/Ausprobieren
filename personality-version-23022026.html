@@ -690,6 +690,283 @@ a:focus {
         right: 16px;
     }
 }
+
+/* ============================================================
+   Examples Overlay
+   ============================================================ */
+.examples-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--turquoise-lighter) 100%);
+    z-index: 2000;
+    flex-direction: column;
+    animation: fadeIn 0.3s ease;
+}
+
+.examples-overlay.active {
+    display: flex;
+}
+
+.examples-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    padding: 1.1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.examples-header h2 {
+    font-family: 'Outfit', sans-serif;
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.examples-close {
+    position: absolute;
+    right: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.2);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.examples-close:hover {
+    background: rgba(255,255,255,0.35);
+    transform: translateY(-50%) rotate(90deg);
+}
+
+.examples-tabs {
+    background: white;
+    padding: 0.9rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    border-bottom: 2px solid var(--turquoise-lighter);
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 12px var(--shadow);
+}
+
+.examples-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.65rem 0.85rem;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: 2px solid transparent;
+    background: var(--bg-light);
+    min-width: 72px;
+    max-width: 92px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.examples-tab:hover {
+    border-color: var(--turquoise-light);
+    background: var(--turquoise-lighter);
+    transform: translateY(-2px);
+}
+
+.examples-tab.active {
+    border-color: var(--secondary);
+    background: linear-gradient(135deg, var(--secondary-light) 0%, var(--turquoise-lighter) 100%);
+}
+
+.examples-tab svg {
+    width: 26px;
+    height: 26px;
+    stroke: var(--text-medium);
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.examples-tab.active svg {
+    stroke: var(--primary);
+}
+
+.examples-tab-label {
+    font-size: 0.62rem;
+    font-weight: 600;
+    color: var(--text-medium);
+    text-align: center;
+    line-height: 1.2;
+}
+
+.examples-tab.active .examples-tab-label {
+    color: var(--primary);
+}
+
+.examples-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem 1.5rem 3rem;
+}
+
+.examples-chapter {
+    display: none;
+    max-width: 760px;
+    margin: 0 auto;
+    animation: fadeIn 0.35s ease;
+}
+
+.examples-chapter.active {
+    display: block;
+}
+
+.examples-chapter-card {
+    background: white;
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 30px var(--shadow);
+}
+
+.examples-chapter-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.examples-chapter-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--turquoise-lighter) 0%, var(--bg-light) 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 2px solid var(--turquoise-light);
+}
+
+.examples-chapter-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--primary);
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.examples-chapter-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding-top: 0.2rem;
+}
+
+.examples-chapter-num {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--turquoise);
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+}
+
+.examples-chapter-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.25;
+}
+
+.examples-chapter-text {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--text-dark);
+}
+
+.examples-chapter-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--turquoise-lighter);
+}
+
+.examples-nav-btn {
+    background: linear-gradient(135deg, var(--turquoise) 0%, var(--turquoise-light) 100%);
+    color: white;
+    border: none;
+    padding: 0.65rem 1.3rem;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.examples-nav-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(114, 190, 183, 0.4);
+}
+
+.examples-nav-btn:disabled {
+    opacity: 0.3;
+    cursor: default;
+    transform: none;
+    box-shadow: none;
+}
+
+.examples-dots {
+    display: flex;
+    gap: 0.45rem;
+    align-items: center;
+}
+
+.examples-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--turquoise-light);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    padding: 0;
+}
+
+.examples-dot.active {
+    background: var(--secondary);
+    transform: scale(1.35);
+}
+
+@media (max-width: 600px) {
+    .examples-tabs { gap: 0.35rem; padding: 0.7rem 0.4rem; }
+    .examples-tab { min-width: 52px; max-width: 66px; padding: 0.5rem 0.35rem; }
+    .examples-tab svg { width: 20px; height: 20px; }
+    .examples-tab-label { font-size: 0.58rem; }
+    .examples-chapter-card { padding: 1.4rem; }
+    .examples-chapter-title { font-size: 1.15rem; }
+    .examples-chapter-icon { width: 48px; height: 48px; }
+    .examples-header h2 { font-size: 1rem; }
+    .examples-close { width: 34px; height: 34px; font-size: 1.3rem; }
+}
     </style>
 </head>
 <body>
@@ -742,11 +1019,20 @@ a:focus {
             </div>
             <div class="modal-body" id="modal-body"></div>
             <div class="modal-buttons">
-                <a href="https://www.medien.kita.bayern/edu-sharing/components/search" target="_blank" rel="noopener noreferrer" class="media-btn">Zeig mir mehr<br>Beispiele</a>
+                <button class="media-btn" onclick="openExamples()">Zeig mir mehr<br>Beispiele</button>
                 <button class="back-btn" onclick="closeModal()">Zurück zum Ergebnis</button>
-                
             </div>
         </div>
+    </div>
+
+    <!-- Examples Overlay -->
+    <div class="examples-overlay" id="examples-overlay">
+        <div class="examples-header">
+            <h2>KITA HUB – Mehr Beispiele</h2>
+            <button class="examples-close" onclick="closeExamples()" aria-label="Schließen">&times;</button>
+        </div>
+        <div class="examples-tabs" id="examples-tabs"></div>
+        <div class="examples-content" id="examples-content"></div>
     </div>
 
     <script>
@@ -1145,6 +1431,133 @@ function stopSiaSnippet() {
     // Falls Modal neu gerendert wurde: alle eventuellen Buttons aufräumen
     document.querySelectorAll(".play-audio-btn.is-playing").forEach(el => el.classList.remove("is-playing"));
 }
+
+// ============================================================
+// Examples Overlay
+// ============================================================
+const examplesData = [
+    {
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>`,
+        tabLabel: 'Team&shy;sitzung',
+        chapterNum: 'Kapitel 1',
+        title: 'Gemeinsam dokumentieren &amp; Ideen entwickeln',
+        text: 'Im Kita-Alltag entstehen ständig neue Ideen – doch sie gehen schnell verloren, wenn sie nicht festgehalten werden. Mit digitalen Notizen könnt ihr eure Teamsitzungen direkt dokumentieren und gemeinsam weiterdenken. Protokolle sind so bereits kurz nach dem Termin verfügbar und können jederzeit ergänzt werden. Auch bei der Planung von Veranstaltungen wie Sommerfesten oder Projekttagen kann das gesamte Team gleichzeitig Ideen sammeln, kommentieren und strukturieren. Selbst der Elternbeirat profitiert davon: Themen lassen sich über Wochen hinweg sammeln, sodass ihr bestens vorbereitet in jedes Treffen startet.'
+    },
+    {
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>`,
+        tabLabel: 'QR-Codes',
+        chapterNum: 'Kapitel 2',
+        title: 'Informationen einfach zugänglich machen',
+        text: 'Gedruckte Elternbriefe oder Aushänge sind schnell veraltet – digitale Inhalte dagegen lassen sich jederzeit aktualisieren. Mithilfe von QR-Codes oder Kurzlinks könnt ihr Eltern unkompliziert auf aktuelle Informationen zugreifen lassen, etwa auf Elternbriefe oder das Lieblingslied des Monats. Besonders praktisch: Der ausgedruckte Code bleibt derselbe, während ihr den dahinterliegenden Inhalt jederzeit austauschen könnt. So genügt ein einmal aufgehängter QR-Code in der Einrichtung, um dauerhaft Zugriff auf wichtige Dokumente oder Materialien zu ermöglichen.'
+    },
+    {
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
+        tabLabel: 'Team&shy;chat',
+        chapterNum: 'Kapitel 3',
+        title: 'Strukturierte Kommunikation im Team',
+        text: 'Eine klare Trennung zwischen beruflicher und privater Kommunikation entlastet im Alltag. Über einen datenschutzkonformen Teamchat könnt ihr euch innerhalb der Einrichtung austauschen, ohne auf private Messenger zurückgreifen zu müssen. Thematisch sortierte Chat-Räume helfen dabei, den Überblick zu behalten – etwa für Teamsitzungen, Festplanungen oder gruppeninterne Absprachen. Zusätzlich bietet sich die Möglichkeit, sich mit Fachkräften aus anderen Einrichtungen zu vernetzen und Erfahrungen auszutauschen, beispielsweise zu aktuellen Themen wie dem Einsatz von KI im pädagogischen Alltag.'
+    },
+    {
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>`,
+        tabLabel: 'Meetings',
+        chapterNum: 'Kapitel 4',
+        title: 'Flexibel an Besprechungen teilnehmen',
+        text: 'Nicht immer ist es möglich, persönlich an Teamsitzungen teilzunehmen – etwa bei Teilzeitmodellen, familiären Verpflichtungen oder organisatorischen Hindernissen. Digitale Meetings ermöglichen es, dennoch eingebunden zu bleiben. Auch externe Beteiligte oder Kolleginnen und Kollegen können unkompliziert zugeschaltet werden. In Kombination mit vorhandener Technik wie einem Beamer lassen sich hybride Sitzungen gestalten, bei denen sowohl anwesende als auch online zugeschaltete Personen gemeinsam arbeiten können.'
+    },
+    {
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>`,
+        tabLabel: 'Materialien',
+        chapterNum: 'Kapitel 5',
+        title: 'Inspiration für den Kita-Alltag',
+        text: 'Für die Planung pädagogischer Angebote braucht es häufig neue Impulse. Über eine zentrale Mediensammlung lassen sich Materialien wie Handreichungen, Anleitungen oder Videobeispiele schnell recherchieren. Eigene thematische Sammlungen – etwa zu Sprachbildung oder Aktivitäten für Vorschulkinder – schaffen Struktur und erleichtern die Vorbereitung. Diese Sammlungen können im Team geteilt werden, sodass Kolleginnen und Kollegen entweder gemeinsam daran arbeiten oder Inhalte lediglich einsehen können. Besonders für neue Mitarbeitende entsteht so ein schneller Überblick über etablierte Materialien und Konzepte.'
+    },
+    {
+        icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`,
+        tabLabel: 'KITA HUB',
+        chapterNum: 'Kapitel 6',
+        title: 'Unterstützung für Organisation &amp; Weiterbildung',
+        text: 'Der KITA HUB bündelt verschiedene digitale Werkzeuge, die speziell für die Anforderungen von Kita-Fachkräften entwickelt wurden. Neben organisatorischen Hilfsmitteln stehen Materialien zur Inspiration sowie Weiterbildungsangebote zur Verfügung. Alle Dienste sind kostenfrei nutzbar, datenschutzkonform gestaltet und auf die tägliche Praxis in Kindertageseinrichtungen abgestimmt. So entsteht ein zentraler digitaler Arbeitsplatz, der dabei unterstützt, Abläufe zu strukturieren und den Arbeitsalltag effizienter zu gestalten.'
+    }
+];
+
+let examplesBuilt = false;
+
+function buildExamplesOverlay() {
+    if (examplesBuilt) return;
+    examplesBuilt = true;
+
+    const tabsEl = document.getElementById('examples-tabs');
+    const contentEl = document.getElementById('examples-content');
+
+    examplesData.forEach(function(ch, i) {
+        // Tab button
+        const tab = document.createElement('button');
+        tab.className = 'examples-tab' + (i === 0 ? ' active' : '');
+        tab.setAttribute('aria-label', ch.chapterNum);
+        tab.innerHTML = ch.icon + '<span class="examples-tab-label">' + ch.tabLabel + '</span>';
+        tab.addEventListener('click', function() { showChapter(i); });
+        tabsEl.appendChild(tab);
+
+        // Navigation dots HTML (pre-computed)
+        const dotsHtml = examplesData.map(function(_, j) {
+            return '<button class="examples-dot' + (j === i ? ' active' : '') + '" onclick="showChapter(' + j + ')" aria-label="Kapitel ' + (j + 1) + '"></button>';
+        }).join('');
+
+        // Chapter content
+        const chapter = document.createElement('div');
+        chapter.className = 'examples-chapter' + (i === 0 ? ' active' : '');
+        chapter.id = 'ex-chapter-' + i;
+        chapter.innerHTML =
+            '<div class="examples-chapter-card">' +
+                '<div class="examples-chapter-header">' +
+                    '<div class="examples-chapter-icon">' + ch.icon + '</div>' +
+                    '<div class="examples-chapter-meta">' +
+                        '<span class="examples-chapter-num">' + ch.chapterNum + '</span>' +
+                        '<h3 class="examples-chapter-title">' + ch.title + '</h3>' +
+                    '</div>' +
+                '</div>' +
+                '<p class="examples-chapter-text">' + ch.text + '</p>' +
+                '<div class="examples-chapter-nav">' +
+                    '<button class="examples-nav-btn" onclick="showChapter(' + (i - 1) + ')"' + (i === 0 ? ' disabled' : '') + '>← Zurück</button>' +
+                    '<div class="examples-dots">' + dotsHtml + '</div>' +
+                    '<button class="examples-nav-btn" onclick="showChapter(' + (i + 1) + ')"' + (i === examplesData.length - 1 ? ' disabled' : '') + '>Weiter →</button>' +
+                '</div>' +
+            '</div>';
+        contentEl.appendChild(chapter);
+    });
+}
+
+function openExamples() {
+    buildExamplesOverlay();
+    showChapter(0);
+    document.getElementById('examples-overlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeExamples() {
+    document.getElementById('examples-overlay').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function showChapter(index) {
+    if (index < 0 || index >= examplesData.length) return;
+
+    document.querySelectorAll('.examples-tab').forEach(function(tab, i) {
+        tab.classList.toggle('active', i === index);
+    });
+
+    document.querySelectorAll('.examples-chapter').forEach(function(ch, i) {
+        ch.classList.toggle('active', i === index);
+    });
+
+    document.getElementById('examples-content').scrollTop = 0;
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && document.getElementById('examples-overlay').classList.contains('active')) {
+        closeExamples();
+    }
+});
     </script>
 </body>
 </html>
