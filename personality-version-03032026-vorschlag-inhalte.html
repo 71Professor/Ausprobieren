@@ -1546,35 +1546,196 @@ const examplesData = [
         tabLabel: 'QR-Codes',
         chapterNum: 'Kapitel 2',
         title: 'Informationen einfach zugänglich machen',
-        text: 'Gedruckte Elternbriefe oder Aushänge sind schnell veraltet – digitale Inhalte dagegen lassen sich jederzeit aktualisieren. Mithilfe von QR-Codes oder Kurzlinks könnt ihr Eltern unkompliziert auf aktuelle Informationen zugreifen lassen, etwa auf Elternbriefe oder das Lieblingslied des Monats. Besonders praktisch: Der ausgedruckte Code bleibt derselbe, während ihr den dahinterliegenden Inhalt jederzeit austauschen könnt. So genügt ein einmal aufgehängter QR-Code in der Einrichtung, um dauerhaft Zugriff auf wichtige Dokumente oder Materialien zu ermöglichen.'
+
+        // ── INHALT QR-CODES ────────────────────────────────────────────
+        // Hier könnt ihr den Inhalt frei gestalten:
+        //   <h4>Überschrift</h4>          → Unterüberschrift
+        //   <p>Text</p>                   → Absatz
+        //   <img src="bild.jpg" alt="…">  → Bild (volle Breite)
+        //   <ul><li>Punkt</li></ul>       → Aufzählung
+        // ─────────────────────────────────────────────────────────────────
+        content: `
+            <p>
+                Gedruckte Elternbriefe oder Aushänge sind schnell veraltet –
+                digitale Inhalte dagegen lassen sich jederzeit aktualisieren.
+            </p>
+
+            <h4>Eltern einfach informieren</h4>
+            <p>
+                Mithilfe von QR-Codes oder Kurzlinks könnt ihr Eltern unkompliziert
+                auf aktuelle Informationen zugreifen lassen, etwa auf Elternbriefe
+                oder das Lieblingslied des Monats.
+            </p>
+
+            <!-- Bild einfügen: src-Pfad anpassen, alt-Text beschreibt das Bild -->
+            <!-- <img src="bilder/qrcode.jpg" alt="QR-Code an der Pinnwand"> -->
+
+            <h4>Einmal aufhängen, jederzeit aktuell halten</h4>
+            <p>
+                Besonders praktisch: Der ausgedruckte Code bleibt derselbe,
+                während ihr den dahinterliegenden Inhalt jederzeit austauschen könnt.
+                So genügt ein einmal aufgehängter QR-Code in der Einrichtung, um
+                dauerhaft Zugriff auf wichtige Dokumente oder Materialien zu ermöglichen.
+            </p>
+        `,
+        // ─────────────────────────────────────────────────────────────────
     },
     {
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
         tabLabel: 'Team&shy;chat',
         chapterNum: 'Kapitel 3',
         title: 'Strukturierte Kommunikation im Team',
-        text: 'Eine klare Trennung zwischen beruflicher und privater Kommunikation entlastet im Alltag. Über einen datenschutzkonformen Teamchat könnt ihr euch innerhalb der Einrichtung austauschen, ohne auf private Messenger zurückgreifen zu müssen. Thematisch sortierte Chat-Räume helfen dabei, den Überblick zu behalten – etwa für Teamsitzungen, Festplanungen oder gruppeninterne Absprachen. Zusätzlich bietet sich die Möglichkeit, sich mit Fachkräften aus anderen Einrichtungen zu vernetzen und Erfahrungen auszutauschen, beispielsweise zu aktuellen Themen wie dem Einsatz von KI im pädagogischen Alltag.'
+
+        // ── INHALT TEAMCHAT ────────────────────────────────────────────
+        // Hier könnt ihr den Inhalt frei gestalten:
+        //   <h4>Überschrift</h4>          → Unterüberschrift
+        //   <p>Text</p>                   → Absatz
+        //   <img src="bild.jpg" alt="…">  → Bild (volle Breite)
+        //   <ul><li>Punkt</li></ul>       → Aufzählung
+        // ─────────────────────────────────────────────────────────────────
+        content: `
+            <p>
+                Eine klare Trennung zwischen beruflicher und privater Kommunikation
+                entlastet im Alltag. Über einen datenschutzkonformen Teamchat könnt
+                ihr euch innerhalb der Einrichtung austauschen, ohne auf private
+                Messenger zurückgreifen zu müssen.
+            </p>
+
+            <h4>Thematisch sortierte Chat-Räume</h4>
+            <p>
+                Thematisch sortierte Räume helfen dabei, den Überblick zu behalten –
+                etwa für Teamsitzungen, Festplanungen oder gruppeninterne Absprachen.
+            </p>
+
+            <!-- Bild einfügen: src-Pfad anpassen, alt-Text beschreibt das Bild -->
+            <!-- <img src="bilder/teamchat.jpg" alt="Teamchat auf dem Smartphone"> -->
+
+            <h4>Mit Fachkräften vernetzt</h4>
+            <p>
+                Zusätzlich bietet sich die Möglichkeit, sich mit Fachkräften aus
+                anderen Einrichtungen zu vernetzen und Erfahrungen auszutauschen –
+                beispielsweise zu aktuellen Themen wie dem Einsatz von KI im
+                pädagogischen Alltag.
+            </p>
+        `,
+        // ─────────────────────────────────────────────────────────────────
     },
     {
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>`,
         tabLabel: 'Meetings',
         chapterNum: 'Kapitel 4',
         title: 'Flexibel an Besprechungen teilnehmen',
-        text: 'Nicht immer ist es möglich, persönlich an Teamsitzungen teilzunehmen – etwa bei Teilzeitmodellen, familiären Verpflichtungen oder organisatorischen Hindernissen. Digitale Meetings ermöglichen es, dennoch eingebunden zu bleiben. Auch externe Beteiligte oder Kolleginnen und Kollegen können unkompliziert zugeschaltet werden. In Kombination mit vorhandener Technik wie einem Beamer lassen sich hybride Sitzungen gestalten, bei denen sowohl anwesende als auch online zugeschaltete Personen gemeinsam arbeiten können.'
+
+        // ── INHALT MEETINGS ────────────────────────────────────────────
+        // Hier könnt ihr den Inhalt frei gestalten:
+        //   <h4>Überschrift</h4>          → Unterüberschrift
+        //   <p>Text</p>                   → Absatz
+        //   <img src="bild.jpg" alt="…">  → Bild (volle Breite)
+        //   <ul><li>Punkt</li></ul>       → Aufzählung
+        // ─────────────────────────────────────────────────────────────────
+        content: `
+            <p>
+                Nicht immer ist es möglich, persönlich an Teamsitzungen teilzunehmen –
+                etwa bei Teilzeitmodellen, familiären Verpflichtungen oder
+                organisatorischen Hindernissen.
+            </p>
+
+            <h4>Flexibel dabei sein</h4>
+            <p>
+                Digitale Meetings ermöglichen es, dennoch eingebunden zu bleiben.
+                Auch externe Beteiligte oder Kolleginnen und Kollegen können
+                unkompliziert zugeschaltet werden.
+            </p>
+
+            <!-- Bild einfügen: src-Pfad anpassen, alt-Text beschreibt das Bild -->
+            <!-- <img src="bilder/meeting.jpg" alt="Hybrides Meeting mit Beamer"> -->
+
+            <h4>Hybride Sitzungen gestalten</h4>
+            <p>
+                In Kombination mit vorhandener Technik wie einem Beamer lassen sich
+                hybride Sitzungen gestalten, bei denen sowohl anwesende als auch
+                online zugeschaltete Personen gemeinsam arbeiten können.
+            </p>
+        `,
+        // ─────────────────────────────────────────────────────────────────
     },
     {
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>`,
         tabLabel: 'Materialien',
         chapterNum: 'Kapitel 5',
         title: 'Inspiration für den Kita-Alltag',
-        text: 'Für die Planung pädagogischer Angebote braucht es häufig neue Impulse. Über eine zentrale Mediensammlung lassen sich Materialien wie Handreichungen, Anleitungen oder Videobeispiele schnell recherchieren. Eigene thematische Sammlungen – etwa zu Sprachbildung oder Aktivitäten für Vorschulkinder – schaffen Struktur und erleichtern die Vorbereitung. Diese Sammlungen können im Team geteilt werden, sodass Kolleginnen und Kollegen entweder gemeinsam daran arbeiten oder Inhalte lediglich einsehen können. Besonders für neue Mitarbeitende entsteht so ein schneller Überblick über etablierte Materialien und Konzepte.'
+
+        // ── INHALT MATERIALIEN ─────────────────────────────────────────
+        // Hier könnt ihr den Inhalt frei gestalten:
+        //   <h4>Überschrift</h4>          → Unterüberschrift
+        //   <p>Text</p>                   → Absatz
+        //   <img src="bild.jpg" alt="…">  → Bild (volle Breite)
+        //   <ul><li>Punkt</li></ul>       → Aufzählung
+        // ─────────────────────────────────────────────────────────────────
+        content: `
+            <p>
+                Für die Planung pädagogischer Angebote braucht es häufig neue Impulse.
+                Über eine zentrale Mediensammlung lassen sich Materialien wie
+                Handreichungen, Anleitungen oder Videobeispiele schnell recherchieren.
+            </p>
+
+            <h4>Eigene Sammlungen anlegen</h4>
+            <p>
+                Eigene thematische Sammlungen – etwa zu Sprachbildung oder Aktivitäten
+                für Vorschulkinder – schaffen Struktur und erleichtern die Vorbereitung.
+            </p>
+
+            <!-- Bild einfügen: src-Pfad anpassen, alt-Text beschreibt das Bild -->
+            <!-- <img src="bilder/materialien.jpg" alt="Materialiensammlung auf dem Tablet"> -->
+
+            <h4>Im Team teilen</h4>
+            <p>
+                Sammlungen können im Team geteilt werden, sodass Kolleginnen und
+                Kollegen entweder gemeinsam daran arbeiten oder Inhalte lediglich
+                einsehen können. Besonders für neue Mitarbeitende entsteht so ein
+                schneller Überblick über etablierte Materialien und Konzepte.
+            </p>
+        `,
+        // ─────────────────────────────────────────────────────────────────
     },
     {
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`,
         tabLabel: 'KITA HUB',
         chapterNum: 'Kapitel 6',
         title: 'Unterstützung für Organisation &amp; Weiterbildung',
-        text: 'Der KITA HUB bündelt verschiedene digitale Werkzeuge, die speziell für die Anforderungen von Kita-Fachkräften entwickelt wurden. Neben organisatorischen Hilfsmitteln stehen Materialien zur Inspiration sowie Weiterbildungsangebote zur Verfügung. Alle Dienste sind kostenfrei nutzbar, datenschutzkonform gestaltet und auf die tägliche Praxis in Kindertageseinrichtungen abgestimmt. So entsteht ein zentraler digitaler Arbeitsplatz, der dabei unterstützt, Abläufe zu strukturieren und den Arbeitsalltag effizienter zu gestalten.'
+
+        // ── INHALT KITA HUB ────────────────────────────────────────────
+        // Hier könnt ihr den Inhalt frei gestalten:
+        //   <h4>Überschrift</h4>          → Unterüberschrift
+        //   <p>Text</p>                   → Absatz
+        //   <img src="bild.jpg" alt="…">  → Bild (volle Breite)
+        //   <ul><li>Punkt</li></ul>       → Aufzählung
+        // ─────────────────────────────────────────────────────────────────
+        content: `
+            <p>
+                Der KITA HUB bündelt verschiedene digitale Werkzeuge, die speziell
+                für die Anforderungen von Kita-Fachkräften entwickelt wurden. Neben
+                organisatorischen Hilfsmitteln stehen Materialien zur Inspiration
+                sowie Weiterbildungsangebote zur Verfügung.
+            </p>
+
+            <h4>Kostenfrei &amp; datenschutzkonform</h4>
+            <p>
+                Alle Dienste sind kostenfrei nutzbar, datenschutzkonform gestaltet
+                und auf die tägliche Praxis in Kindertageseinrichtungen abgestimmt.
+            </p>
+
+            <!-- Bild einfügen: src-Pfad anpassen, alt-Text beschreibt das Bild -->
+            <!-- <img src="bilder/kitahub.jpg" alt="KITA HUB Startseite auf dem Tablet"> -->
+
+            <h4>Euer digitaler Arbeitsplatz</h4>
+            <p>
+                So entsteht ein zentraler digitaler Arbeitsplatz, der dabei
+                unterstützt, Abläufe zu strukturieren und den Arbeitsalltag
+                effizienter zu gestalten.
+            </p>
+        `
+        // ─────────────────────────────────────────────────────────────────
     }
 ];
 
