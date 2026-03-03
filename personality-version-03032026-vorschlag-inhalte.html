@@ -915,6 +915,47 @@ a:focus {
     color: var(--text-dark);
 }
 
+/* ── Rich HTML-Inhaltsbereich ───────────────────────────────────
+   Hier könnt ihr mit einfachen HTML-Tags Texte, Überschriften
+   und Bilder gestalten. Einfach die Elemente unten verwenden.
+────────────────────────────────────────────────────────────── */
+.examples-chapter-content {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--text-dark);
+}
+
+/* Unterüberschriften innerhalb des Inhaltsbereichs */
+.examples-chapter-content h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 1.4rem 0 0.35rem;
+}
+
+/* Absätze */
+.examples-chapter-content p {
+    margin-bottom: 0.8rem;
+}
+
+/* Bilder – automatisch volle Breite, abgerundete Ecken */
+.examples-chapter-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 0.8rem 0;
+    display: block;
+}
+
+/* Aufzählungslisten */
+.examples-chapter-content ul {
+    margin: 0.4rem 0 0.8rem 1.4rem;
+}
+.examples-chapter-content ul li {
+    margin-bottom: 0.3rem;
+}
+
 .examples-chapter-nav {
     display: flex;
     justify-content: space-between;
@@ -1460,8 +1501,45 @@ const examplesData = [
         tabLabel: 'Team&shy;sitzung',
         chapterNum: 'Notizen',
         title: 'Gemeinsam dokumentieren &amp; Ideen entwickeln',
-        text: 'Im Kita-Alltag entstehen ständig neue Ideen – doch sie gehen schnell verloren, wenn sie nicht festgehalten werden. Mit digitalen Notizen könnt ihr eure Teamsitzungen direkt dokumentieren und gemeinsam weiterdenken. Protokolle sind so bereits kurz nach dem Termin verfügbar und können jederzeit ergänzt werden. Auch bei der Planung von Veranstaltungen wie Sommerfesten oder Projekttagen kann das gesamte Team gleichzeitig Ideen sammeln, kommentieren und strukturieren. Selbst der Elternbeirat profitiert davon: Themen lassen sich über Wochen hinweg sammeln, sodass ihr bestens vorbereitet in jedes Treffen startet.',
-        
+
+        // ── INHALT TEAMSITZUNG ──────────────────────────────────────────
+        // Hier könnt ihr den Inhalt frei gestalten:
+        //   <h4>Überschrift</h4>          → Unterüberschrift
+        //   <p>Text</p>                   → Absatz
+        //   <img src="bild.jpg" alt="…">  → Bild (volle Breite)
+        //   <ul><li>Punkt</li></ul>       → Aufzählung
+        // ─────────────────────────────────────────────────────────────────
+        content: `
+            <p>
+                Im Kita-Alltag entstehen ständig neue Ideen – doch sie gehen schnell
+                verloren, wenn sie nicht festgehalten werden. Mit digitalen Notizen
+                könnt ihr eure Teamsitzungen direkt dokumentieren und gemeinsam
+                weiterdenken.
+            </p>
+
+            <h4>Protokolle immer griffbereit</h4>
+            <p>
+                Protokolle sind bereits kurz nach dem Termin verfügbar und können
+                jederzeit ergänzt werden – von jedem Gerät aus, ganz ohne Zettelwirtschaft.
+            </p>
+
+            <!-- Bild einfügen: src-Pfad anpassen, alt-Text beschreibt das Bild -->
+            <!-- <img src="bilder/teamsitzung.jpg" alt="Team sitzt zusammen und dokumentiert"> -->
+
+            <h4>Ideen gemeinsam sammeln &amp; strukturieren</h4>
+            <p>
+                Bei der Planung von Veranstaltungen wie Sommerfesten oder Projekttagen
+                kann das gesamte Team gleichzeitig Ideen sammeln, kommentieren und
+                strukturieren.
+            </p>
+
+            <h4>Gut vorbereitet in jedes Treffen</h4>
+            <p>
+                Selbst der Elternbeirat profitiert: Themen lassen sich über Wochen
+                hinweg sammeln, sodass ihr bestens vorbereitet startet.
+            </p>
+        `,
+        // ─────────────────────────────────────────────────────────────────
     },
     {
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>`,
@@ -1536,7 +1614,9 @@ function buildExamplesOverlay() {
                         '<h3 class="examples-chapter-title">' + ch.title + '</h3>' +
                     '</div>' +
                 '</div>' +
-                '<p class="examples-chapter-text">' + ch.text + '</p>' +
+                (ch.content
+                    ? '<div class="examples-chapter-content">' + ch.content + '</div>'
+                    : '<p class="examples-chapter-text">' + ch.text + '</p>') +
                 '<div class="examples-chapter-nav">' +
                     '<button class="examples-nav-btn" onclick="showChapter(' + (i - 1) + ')"' + (i === 0 ? ' disabled' : '') + '>← Zurück</button>' +
                     '<div class="examples-dots">' + dotsHtml + '</div>' +
