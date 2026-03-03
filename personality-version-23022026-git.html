@@ -1391,9 +1391,9 @@ document.getElementById('modal-overlay').classList.remove('active');
             }
         }
 
-        // ESC-Taste zum Schließen des Modals
+        // ESC-Taste zum Schließen des Modals (nur wenn Examples-Overlay nicht offen ist)
         document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
+            if (event.key === 'Escape' && !document.getElementById('examples-overlay').classList.contains('active')) {
                 closeModal();
             }
         });
@@ -1549,13 +1549,14 @@ function buildExamplesOverlay() {
 function openExamples() {
     buildExamplesOverlay();
     showChapter(0);
+    document.getElementById('modal-overlay').classList.remove('active');
     document.getElementById('examples-overlay').classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
 function closeExamples() {
     document.getElementById('examples-overlay').classList.remove('active');
-    document.body.style.overflow = '';
+    document.getElementById('modal-overlay').classList.add('active');
 }
 
 function showChapter(index) {
