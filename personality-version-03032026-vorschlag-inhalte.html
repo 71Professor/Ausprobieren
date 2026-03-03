@@ -466,8 +466,8 @@
             background: var(--bg-white);
             border-radius: 24px;
             padding: 2.5rem;
-            max-width: 780px;
-            width: 100%;
+            max-width: min(780px, 85vw);
+            width: 85vw;
             max-height: 90vh;
             overflow-y: auto;
             position: relative;
@@ -714,8 +714,8 @@ a:focus {
 }
 
 .examples-dialog {
-    max-width: 780px;
-    width: 100%;
+    max-width: min(780px, 85vw);
+    width: 85vw;
     max-height: 90vh;
     display: flex;
     flex-direction: column;
@@ -941,7 +941,6 @@ a:focus {
 
 /* Bilder – automatisch volle Breite, abgerundete Ecken */
 .examples-chapter-content img {
-    width: 100%;
     height: auto;
     border-radius: 12px;
     margin: 0.8rem 0;
@@ -1500,7 +1499,7 @@ const examplesData = [
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>`,
         tabLabel: 'Team&shy;sitzung',
         chapterNum: 'Notizen',
-        title: 'Gemeinsam dokumentieren &amp; Ideen entwickeln',
+        title: 'Vorbereiten, entwickeln, dokumentieren',
 
         // ── INHALT TEAMSITZUNG ──────────────────────────────────────────
         // Hier könnt ihr den Inhalt frei gestalten:
@@ -1510,41 +1509,32 @@ const examplesData = [
         //   <ul><li>Punkt</li></ul>       → Aufzählung
         // ─────────────────────────────────────────────────────────────────
         content: `
+            <h4>Montag</h4>
             <p>
-                Im Kita-Alltag entstehen ständig neue Ideen – doch sie gehen schnell
-                verloren, wenn sie nicht festgehalten werden. Mit digitalen Notizen
-                könnt ihr eure Teamsitzungen direkt dokumentieren und gemeinsam
-                weiterdenken.
-            </p>
-
-            <h4>Protokolle immer griffbereit</h4>
-            <p>
-                Protokolle sind bereits kurz nach dem Termin verfügbar und können
-                jederzeit ergänzt werden – von jedem Gerät aus, ganz ohne Zettelwirtschaft.
+                Blitzschnell ist das Protokoll eurer Teamsitzung online geschrieben!
             </p>
 
             <!-- Bild einfügen: src-Pfad anpassen, alt-Text beschreibt das Bild -->
             <!-- <img src="bilder/teamsitzung.jpg" alt="Team sitzt zusammen und dokumentiert"> -->
 
-            <h4>Ideen gemeinsam sammeln &amp; strukturieren</h4>
+            <h4>Mittwoch</h4>
             <p>
-                Bei der Planung von Veranstaltungen wie Sommerfesten oder Projekttagen
-                kann das gesamte Team gleichzeitig Ideen sammeln, kommentieren und
-                strukturieren.
+                Das ganze Team soll mitplanen und Ideen einbringen können – das nächste Sommerfest wird so noch bunter :D
             </p>
 
-            <h4>Gut vorbereitet in jedes Treffen</h4>
+            <h4>Freitag</h4>
             <p>
-                Selbst der Elternbeirat profitiert: Themen lassen sich über Wochen
-                hinweg sammeln, sodass ihr bestens vorbereitet startet.
+                Der Elternbeirat trifft sich und ihr habt in den letzten Wochen alle Themen in eurem Online-Dokument gesammelt. Ihr seid ready!
             </p>
+            <h4><a href="https://www.notizen.kita.bayern/" target="_blank">KITA HUB Notizen</h4></a>
+            <img src="notizen.jpg" alt="Notizen" width="150px">
         `,
         // ─────────────────────────────────────────────────────────────────
     },
     {
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>`,
         tabLabel: 'QR-Codes',
-        chapterNum: 'Kapitel 2',
+        chapterNum: 'Kurzlinks',
         title: 'Informationen einfach zugänglich machen',
 
         // ── INHALT QR-CODES ────────────────────────────────────────────
@@ -1555,36 +1545,26 @@ const examplesData = [
         //   <ul><li>Punkt</li></ul>       → Aufzählung
         // ─────────────────────────────────────────────────────────────────
         content: `
+            <h4>Einmal erstellt, immer parat!</h4>
             <p>
-                Gedruckte Elternbriefe oder Aushänge sind schnell veraltet –
-                digitale Inhalte dagegen lassen sich jederzeit aktualisieren.
+                Findest du noch einen leeren Bilderrahmen in deiner Einrichtung? 
+            </p>
+            <p>Drucke nur einmal den Zettel mit dem QR-Code aus und hinterlege immer den aktuellen Elternbrief oder das aktuelle Lieblingslied der Kinder.
+            </p>       
+            <p>Verziert das Bild schön, sodass es noch mehr Spaß macht, darauf zu schauen!
             </p>
 
-            <h4>Eltern einfach informieren</h4>
-            <p>
-                Mithilfe von QR-Codes oder Kurzlinks könnt ihr Eltern unkompliziert
-                auf aktuelle Informationen zugreifen lassen, etwa auf Elternbriefe
-                oder das Lieblingslied des Monats.
-            </p>
+            <img src="qrcode.png" alt="Notizen" width="150px">
 
-            <!-- Bild einfügen: src-Pfad anpassen, alt-Text beschreibt das Bild -->
-            <!-- <img src="bilder/qrcode.jpg" alt="QR-Code an der Pinnwand"> -->
-
-            <h4>Einmal aufhängen, jederzeit aktuell halten</h4>
-            <p>
-                Besonders praktisch: Der ausgedruckte Code bleibt derselbe,
-                während ihr den dahinterliegenden Inhalt jederzeit austauschen könnt.
-                So genügt ein einmal aufgehängter QR-Code in der Einrichtung, um
-                dauerhaft Zugriff auf wichtige Dokumente oder Materialien zu ermöglichen.
-            </p>
-        `,
+            <h4><a href="https://link.kita.bayern/" target="_blank">KITA HUB Kurzlink</h4></a>
+                    `,
         // ─────────────────────────────────────────────────────────────────
     },
     {
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
         tabLabel: 'Team&shy;chat',
-        chapterNum: 'Kapitel 3',
-        title: 'Strukturierte Kommunikation im Team',
+        chapterNum: 'Chat',
+        title: 'Kommunikation im Team',
 
         // ── INHALT TEAMCHAT ────────────────────────────────────────────
         // Hier könnt ihr den Inhalt frei gestalten:
@@ -1594,36 +1574,32 @@ const examplesData = [
         //   <ul><li>Punkt</li></ul>       → Aufzählung
         // ─────────────────────────────────────────────────────────────────
         content: `
+            <h4>Wie trennt man berufliches und privates?</h4>
             <p>
-                Eine klare Trennung zwischen beruflicher und privater Kommunikation
-                entlastet im Alltag. Über einen datenschutzkonformen Teamchat könnt
-                ihr euch innerhalb der Einrichtung austauschen, ohne auf private
-                Messenger zurückgreifen zu müssen.
-            </p>
-
-            <h4>Thematisch sortierte Chat-Räume</h4>
-            <p>
-                Thematisch sortierte Räume helfen dabei, den Überblick zu behalten –
-                etwa für Teamsitzungen, Festplanungen oder gruppeninterne Absprachen.
+               Be  |  ruf  |  lich  |  es     und      Pri  |  va  |  tes
             </p>
 
             <!-- Bild einfügen: src-Pfad anpassen, alt-Text beschreibt das Bild -->
             <!-- <img src="bilder/teamchat.jpg" alt="Teamchat auf dem Smartphone"> -->
 
-            <h4>Mit Fachkräften vernetzt</h4>
             <p>
-                Zusätzlich bietet sich die Möglichkeit, sich mit Fachkräften aus
-                anderen Einrichtungen zu vernetzen und Erfahrungen auszutauschen –
-                beispielsweise zu aktuellen Themen wie dem Einsatz von KI im
-                pädagogischen Alltag.
+               …kleiner Scherz! Nutze einen professionellen Chat für deine Arbeit!
+Ein Problem ist oft, dass über WhatsApp oder ähnliche Messengerdienste auch am Wochenende oder nach Feierabend Nachrichten ankommen, da du die App auch für deine privaten Verabredungen nutzt.
             </p>
+            <p>Chattet daher als Kita-Team im eigenen Messengerdienst „Element“. So kannst du die App nach Feierabend auch mal abschalten und erst Montagfrüh wieder anmachen. Der Chat ist außerdem DSGVO-konform.
+            </p>
+            <p>Profi-Tipp: Erstelle Chat-Räume mit Kita-Kolleginnen und Kollegen, die thematisch sortiert sind: Einen Chat-Raum für Themen für die nächste Teamsitzung, einen Chat-Raum für die Planung fürs Kita-Fest, einen Raum für Ideen und nur für deine Gruppe uvm.
+            </p>
+            <p>Vernetze dich aber auch mit Kita Fachkräften aus ganz Bayern: Frage z.B. im Chat-Raum „Mitmachen. Unterstützen. Austauschen“ wie andere Kitas mit dem Thema "KI in der Kita" umgehen.
+            </p>
+            <h4><a href="https://www.chat.kita.bayern/" target="_blank">KITA HUB Chat</h4></a>    
         `,
         // ─────────────────────────────────────────────────────────────────
     },
     {
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>`,
         tabLabel: 'Meetings',
-        chapterNum: 'Kapitel 4',
+        chapterNum: 'Meeting',
         title: 'Flexibel an Besprechungen teilnehmen',
 
         // ── INHALT MEETINGS ────────────────────────────────────────────
@@ -1634,28 +1610,22 @@ const examplesData = [
         //   <ul><li>Punkt</li></ul>       → Aufzählung
         // ─────────────────────────────────────────────────────────────────
         content: `
+            <h4>Online zuschalten</h4>
             <p>
-                Nicht immer ist es möglich, persönlich an Teamsitzungen teilzunehmen –
-                etwa bei Teilzeitmodellen, familiären Verpflichtungen oder
-                organisatorischen Hindernissen.
+                Du arbeitest in Teilzeit und hast Dienstschluss, doch in wenigen Stunden musst du wieder zum Teammeeting in die Einrichtung fahren?
+            </p>
+            <p>Oder die eigenen Kinder sind krank, das Auto in der Werkstatt oder du hast einen privaten Anschlusstermin?
+            </p>
+            <p>Startet ein digitales Meeting – so können alle ohne Probleme an der Teamsitzung teilnehmen! 
+            </p>
+            <p>Ihr habt einen Beamer in der Einrichtung? Schaltet Personen online dazu, die ansonsten nicht teilnehmen könnten.
             </p>
 
-            <h4>Flexibel dabei sein</h4>
-            <p>
-                Digitale Meetings ermöglichen es, dennoch eingebunden zu bleiben.
-                Auch externe Beteiligte oder Kolleginnen und Kollegen können
-                unkompliziert zugeschaltet werden.
-            </p>
+            
+          <img src="meeting.png" alt="Meeting" width="150px">
 
-            <!-- Bild einfügen: src-Pfad anpassen, alt-Text beschreibt das Bild -->
-            <!-- <img src="bilder/meeting.jpg" alt="Hybrides Meeting mit Beamer"> -->
-
-            <h4>Hybride Sitzungen gestalten</h4>
-            <p>
-                In Kombination mit vorhandener Technik wie einem Beamer lassen sich
-                hybride Sitzungen gestalten, bei denen sowohl anwesende als auch
-                online zugeschaltete Personen gemeinsam arbeiten können.
-            </p>
+            <h4><a href="https://meeting.kita.bayern/" target="_blank">KITA HUB Meeting</h4></a>
+            
         `,
         // ─────────────────────────────────────────────────────────────────
     },
@@ -1674,26 +1644,20 @@ const examplesData = [
         // ─────────────────────────────────────────────────────────────────
         content: `
             <p>
-                Für die Planung pädagogischer Angebote braucht es häufig neue Impulse.
-                Über eine zentrale Mediensammlung lassen sich Materialien wie
-                Handreichungen, Anleitungen oder Videobeispiele schnell recherchieren.
+                Habedehre bitt, Prosd. Middn Fünferl großherzig, Meidromml. Stubn a gwiss no a Maß umananda, wos anbandeln Landla pfenningguat Leonhardifahrt.
             </p>
 
-            <h4>Eigene Sammlungen anlegen</h4>
+            <h4>Überschrift</h4>
             <p>
-                Eigene thematische Sammlungen – etwa zu Sprachbildung oder Aktivitäten
-                für Vorschulkinder – schaffen Struktur und erleichtern die Vorbereitung.
+                Habedehre bitt, Prosd. Middn Fünferl großherzig, Meidromml. Stubn a gwiss no a Maß umananda, wos anbandeln Landla pfenningguat Leonhardifahrt.
             </p>
 
             <!-- Bild einfügen: src-Pfad anpassen, alt-Text beschreibt das Bild -->
             <!-- <img src="bilder/materialien.jpg" alt="Materialiensammlung auf dem Tablet"> -->
 
-            <h4>Im Team teilen</h4>
+            <h4>Überschrift</h4>
             <p>
-                Sammlungen können im Team geteilt werden, sodass Kolleginnen und
-                Kollegen entweder gemeinsam daran arbeiten oder Inhalte lediglich
-                einsehen können. Besonders für neue Mitarbeitende entsteht so ein
-                schneller Überblick über etablierte Materialien und Konzepte.
+                Habedehre bitt, Prosd. Middn Fünferl großherzig, Meidromml. Stubn a gwiss no a Maß umananda, wos anbandeln Landla pfenningguat Leonhardifahrt.
             </p>
         `,
         // ─────────────────────────────────────────────────────────────────
@@ -1702,7 +1666,7 @@ const examplesData = [
         icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`,
         tabLabel: 'KITA HUB',
         chapterNum: 'Kapitel 6',
-        title: 'Unterstützung für Organisation &amp; Weiterbildung',
+        title: 'Der Alleskönner',
 
         // ── INHALT KITA HUB ────────────────────────────────────────────
         // Hier könnt ihr den Inhalt frei gestalten:
@@ -1712,28 +1676,15 @@ const examplesData = [
         //   <ul><li>Punkt</li></ul>       → Aufzählung
         // ─────────────────────────────────────────────────────────────────
         content: `
-            <p>
-                Der KITA HUB bündelt verschiedene digitale Werkzeuge, die speziell
-                für die Anforderungen von Kita-Fachkräften entwickelt wurden. Neben
-                organisatorischen Hilfsmitteln stehen Materialien zur Inspiration
-                sowie Weiterbildungsangebote zur Verfügung.
+            <h4>3 tolle Facts über den KITA HUB</h4>
+            <p>1.  Der KITA HUB ist DEIN Werkzeugkasten, um deinen Kita-Alltag zu organisieren.
+            </p>
+            <p>2. Inspiration finden in der MEDIENECKE und Weiterbilden mit Kursen. Alles frei verwendbar!
+            </p>
+            <p>3.  Alles ist kostenlos, datenschutzkonform und extra für Kita-Fachkräfte entwickelt!
             </p>
 
-            <h4>Kostenfrei &amp; datenschutzkonform</h4>
-            <p>
-                Alle Dienste sind kostenfrei nutzbar, datenschutzkonform gestaltet
-                und auf die tägliche Praxis in Kindertageseinrichtungen abgestimmt.
-            </p>
-
-            <!-- Bild einfügen: src-Pfad anpassen, alt-Text beschreibt das Bild -->
-            <!-- <img src="bilder/kitahub.jpg" alt="KITA HUB Startseite auf dem Tablet"> -->
-
-            <h4>Euer digitaler Arbeitsplatz</h4>
-            <p>
-                So entsteht ein zentraler digitaler Arbeitsplatz, der dabei
-                unterstützt, Abläufe zu strukturieren und den Arbeitsalltag
-                effizienter zu gestalten.
-            </p>
+           <img src="logo2.png" alt="KITA HUB Logo" width="100px">
         `
         // ─────────────────────────────────────────────────────────────────
     }
