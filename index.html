@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kita-Kommunikationsapp (Simulation)</title>
+  <style>
+    :root {
+      --green: #1a6c41;
+      --green-soft: #e7f3ec;
+      --teal: #72beb7;
+      --bg: #f6fbf9;
+      --text: #1d2c26;
+      --muted: #5d6e66;
+      --border: #cde2d7;
+      --danger: #b3261e;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #eff8f4 0%, #f9fcff 100%);
+      color: var(--text);
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .app {
+      width: min(860px, 100%);
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 20px 50px rgba(21, 60, 44, 0.08);
+      overflow: hidden;
+    }
+
+    .header {
+      padding: 18px 24px;
+      background: var(--green-soft);
+      border-bottom: 1px solid var(--border);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.25rem;
+      color: var(--green);
+    }
+
+    .sub {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    form {
+      padding: 20px 24px 24px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .mode-wrap {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .radio-chip {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 14px;
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    label { font-weight: 600; }
+
+    input[type="text"], select {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-size: 1rem;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 12px 12px 0 0;
+      background: #fbfefd;
+    }
+
+    .toolbar button {
+      border: 1px solid var(--border);
+      background: white;
+      border-radius: 8px;
+      min-width: 34px;
+      height: 34px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .toolbar button:hover {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    .editor {
+      min-height: 170px;
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 12px 12px;
+      padding: 12px;
+      line-height: 1.5;
+      outline: none;
+      white-space: pre-wrap;
+    }
+
+    .editor:empty:before {
+      content: attr(data-placeholder);
+      color: #95aaa0;
+    }
+
+    .upload-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .preview {
+      display: none;
+      margin-top: 6px;
+      max-width: 220px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .send {
+      background: var(--green);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 11px 16px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .send:hover { background: #145736; }
+
+    .hint { color: var(--muted); font-size: 0.92rem; }
+
+    .status {
+      min-height: 1.2rem;
+      font-weight: 600;
+    }
+
+    .status.error { color: var(--danger); }
+    .status.success { color: var(--green); }
+
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <div class="header">
+      <h1>Kita-Kommunikationsapp (Demo)</h1>
+      <p class="sub">Simulation für Workshops: Nachricht erstellen, senden, Erfolg sehen, alles zurücksetzen.</p>
+    </div>
+
+    <form id="composer" novalidate>
+      <div>
+        <label>Empfängerauswahl</label>
+        <div class="mode-wrap" role="radiogroup" aria-label="Versandart">
+          <label class="radio-chip"><input type="radio" name="mode" value="direct" checked /> Direkte Adressaten</label>
+          <label class="radio-chip"><input type="radio" name="mode" value="group" /> Kita-Gruppenchat</label>
+        </div>
+      </div>
+
+      <div id="directField">
+        <label for="recipient">Adressatenfeld (z. B. Elternbeirat, Familie Müller)</label>
+        <input id="recipient" type="text" placeholder="Empfänger eingeben..." />
+      </div>
+
+      <div id="groupField" class="hidden">
+        <label for="group">Kita-Gruppe auswählen</label>
+        <select id="group">
+          <option value="">Bitte auswählen…</option>
+          <option value="Sonnenkäfer">Sonnenkäfer</option>
+          <option value="Regenbogen">Regenbogen</option>
+          <option value="Waldwichtel">Waldwichtel</option>
+          <option value="Vorschule">Vorschule</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="editor">Nachricht</label>
+        <div class="toolbar" aria-label="Textformatierung">
+          <button type="button" data-cmd="bold" title="Fett"><strong>B</strong></button>
+          <button type="button" data-cmd="italic" title="Kursiv"><em>I</em></button>
+          <button type="button" data-cmd="underline" title="Unterstrichen"><u>U</u></button>
+          <button type="button" data-cmd="insertUnorderedList" title="Liste">• Liste</button>
+          <button type="button" data-cmd="removeFormat" title="Formatierung entfernen">Tx</button>
+        </div>
+        <div id="editor" class="editor" contenteditable="true" data-placeholder="Hier Workshop-Inhalt einfügen (Link, QR-Hinweis, Abstimmungstext, etc.)..."></div>
+      </div>
+
+      <div>
+        <label for="imageInput">Bildeinfüge-Option</label>
+        <div class="upload-row">
+          <input id="imageInput" type="file" accept="image/*" />
+          <span class="hint">Bild wird nur lokal als Vorschau angezeigt (Simulation).</span>
+        </div>
+        <img id="preview" class="preview" alt="Bildvorschau" />
+      </div>
+
+      <div class="actions">
+        <button class="send" type="submit">Senden</button>
+        <span class="hint">Nach dem Senden werden alle Felder automatisch geleert.</span>
+      </div>
+
+      <div id="status" class="status" aria-live="polite"></div>
+    </form>
+  </main>
+
+  <script>
+    const form = document.getElementById('composer');
+    const editor = document.getElementById('editor');
+    const statusEl = document.getElementById('status');
+    const recipient = document.getElementById('recipient');
+    const group = document.getElementById('group');
+    const directField = document.getElementById('directField');
+    const groupField = document.getElementById('groupField');
+    const modeInputs = document.querySelectorAll('input[name="mode"]');
+    const toolbarButtons = document.querySelectorAll('.toolbar button[data-cmd]');
+    const imageInput = document.getElementById('imageInput');
+    const preview = document.getElementById('preview');
+
+    function getMode() {
+      return document.querySelector('input[name="mode"]:checked').value;
+    }
+
+    function updateModeFields() {
+      const mode = getMode();
+      directField.classList.toggle('hidden', mode !== 'direct');
+      groupField.classList.toggle('hidden', mode !== 'group');
+    }
+
+    function setStatus(message, type) {
+      statusEl.textContent = message;
+      statusEl.className = `status ${type || ''}`.trim();
+    }
+
+    modeInputs.forEach(input => {
+      input.addEventListener('change', () => {
+        updateModeFields();
+        setStatus('', '');
+      });
+    });
+
+    toolbarButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        document.execCommand(button.dataset.cmd, false, null);
+        editor.focus();
+      });
+    });
+
+    imageInput.addEventListener('change', (event) => {
+      const [file] = event.target.files;
+      if (!file) {
+        preview.style.display = 'none';
+        preview.removeAttribute('src');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        preview.src = e.target.result;
+        preview.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+      setStatus('', '');
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const mode = getMode();
+      const hasRecipient = mode === 'direct' ? recipient.value.trim().length > 0 : group.value.trim().length > 0;
+      const textContent = editor.textContent.trim();
+      const hasImage = imageInput.files.length > 0;
+
+      if (!hasRecipient) {
+        setStatus('Bitte Empfänger oder Kita-Gruppe auswählen.', 'error');
+        return;
+      }
+
+      if (!textContent && !hasImage) {
+        setStatus('Bitte Nachrichtentext eingeben oder ein Bild einfügen.', 'error');
+        return;
+      }
+
+      setStatus('Nachricht erfolgreich versendet.', 'success');
+
+      form.reset();
+      editor.innerHTML = '';
+      preview.style.display = 'none';
+      preview.removeAttribute('src');
+      updateModeFields();
+    });
+
+    updateModeFields();
+  </script>
+</body>
+</html>
